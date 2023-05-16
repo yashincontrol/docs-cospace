@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "repos/itwinjs-core"
+    },
+    {
+      "path": "repos/presentation"
+    },
+    {
+      "path": "repos/appui"
+    },
+    {
+      "path": "repos/imodel-transformer"
+    },
+  ],
+  "settings": {
+    "search.exclude": {
+      "**/node_modules": true,
+    },
+    "files.exclude": {
+      "**/lib": false,
+      "**/node_modules": false,
+      "repos/": true,
+    },
+  }
+}
