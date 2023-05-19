@@ -1,8 +1,14 @@
 packages:
   # https://github.com/iTwin/itwinjs-core
-  - "repos/itwinjs-core/**"
-  - "!repos/itwinjs-core"
-
+  - "repos/itwinjs-core/core/**"
+  - "repos/itwinjs-core/presentation/**"
+  - "repos/itwinjs-core/domains/**"
+  - "repos/itwinjs-core/editor/**"
+  - "repos/itwinjs-core/tools/**"
+  - "repos/itwinjs-core/ui/appui-abstract"
+  - "repos/itwinjs-core/extensions/**"
+  - "repos/itwinjs-core/full-stack-tests/presentation/**"
+ 
   # https://github.com/iTwin/appui
   - "repos/appui/ui/**"
 
@@ -13,3 +19,7 @@ packages:
   # https://github.com/iTwin/imodel-transformer
   - "repos/imodel-transformer/packages/**"
   - "!repos/imodel-transformer/test-app"
+
+  # https://dev.azure.com/bentleycs/iModelTechnologies/_git/BeMetalsmith
+  - "repos/BeMetalsmith/packages/**"
+  
