@@ -8,8 +8,9 @@
     "build:clean": "lage build --no-cache",
     "clean": "lage clean --no-cache && cospace purge && pnpm i -w cospace",
     "setOverrides": "cospace override",
-    "docs": "lage docs",
-    "docs:clean": "lage docs --no-cache"
+    "docs": "lage docs && node copyReferenceFiles.js",
+    "docs:clean": "lage docs --no-cache && node copyReferenceFiles.js",
+    "watch:core": "pnpm --filter @bentley/bemetalsmith watch:core"
   },
   "devDependencies": {
     "cospace": "latest",
@@ -96,5 +97,8 @@
       "test-app": "workspace:*",
       "@types/node": "18.16.1"
     }
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1"
   }
 }
