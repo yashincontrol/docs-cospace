@@ -1,4 +1,4 @@
-# CoSpace
+# Docs Cospace
 
 Docs Validation is now possible locally with the help of this cospace. It uses the following repos:
 - [iTwin.js Core](https://github.com/iTwin/itwinjs-core)
