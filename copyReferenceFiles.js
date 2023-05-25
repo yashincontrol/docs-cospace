@@ -58,17 +58,31 @@ try {
   const extractPath = path.resolve(dest, "extract");
   const corefolderList = ["core", "domains", "editor", "presentation", "ui"];
 
-  fse.copySync(path.resolve(coreBasePath, "docs"), dest);
-  fse.copySync(path.resolve(coreBasePath, "generated-docs", "extract"), extractPath);
-  fse.copySync(path.resolve(appuiBasePath, "generated-docs", "extract"), extractPath);
-  fse.copySync(path.resolve(appuiBasePath, "generated-docs", "reference"), referencePath);
-  fse.copySync(path.resolve(presentationBasePath, "build", "docs", "extract"), extractPath);
-  fse.copySync(path.resolve(presentationBasePath, "build", "docs", "reference"), referencePath);
-  fse.copySync(path.resolve(imodelBasePath, "build", "docs", "reference"), referencePath);
+  //copy from core if coreBasePath exists
+  if (fse.existsSync(coreBasePath)) {
+    fse.copySync(path.resolve(coreBasePath, "docs"), dest);
+    fse.copySync(path.resolve(coreBasePath, "generated-docs", "extract"), extractPath);
+    corefolderList.forEach(folder => {
+      fse.copySync(path.resolve(coreBasePath, "generated-docs", folder), referencePath);
+    });
+  }
 
-  corefolderList.forEach(folder => {
-    fse.copySync(path.resolve(coreBasePath, "generated-docs", folder), referencePath);
-  });
+  //copy from appui if appuiBasePath exists
+  if (fse.existsSync(appuiBasePath)) {
+    fse.copySync(path.resolve(appuiBasePath, "generated-docs", "extract"), extractPath);
+    fse.copySync(path.resolve(appuiBasePath, "generated-docs", "reference"), referencePath);
+  }
+
+  //copy from presentation if presentationBasePath exists
+  if (fse.existsSync(presentationBasePath)) {
+    fse.copySync(path.resolve(presentationBasePath, "build", "docs", "extract"), extractPath);
+    fse.copySync(path.resolve(presentationBasePath, "build", "docs", "reference"), referencePath);
+  }
+
+  //copy from imodel-transformer if imodelBasePath exists
+  if (fse.existsSync(imodelBasePath)) {
+    fse.copySync(path.resolve(imodelBasePath, "build", "docs", "reference"), referencePath);
+  }
 
   console.log("Copying finished successfully");
 } catch (err) {
