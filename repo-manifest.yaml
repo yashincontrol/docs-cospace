@@ -1,0 +1,11 @@
+repositories:
+  - name: itwinjs-core
+    url: https://github.com/iTwin/itwinjs-core.git
+  - name: appui
+    url: https://github.com/iTwin/appui.git
+  - name: presentation
+    url: https://github.com/iTwin/presentation.git
+  - name: imodel-transformer
+    url: https://github.com/iTwin/imodel-transformer.git
+  - name: BeMetalsmith
+    url: https://dev.azure.com/bentleycs/iModelTechnologies/_git/BeMetalsmith
